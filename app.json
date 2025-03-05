@@ -3,7 +3,6 @@
     "name": "jungle-camp-tour",
     "slug": "jungle-camp-tour",
     "version": "1.0.0",
-
     "scheme": "jungle-camp-tour",
     "web": {
       "bundler": "metro",
@@ -21,28 +20,36 @@
     ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.eagleman33.junglecamptour"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.eagleman33.junglecamptour"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "45bf2b21-fa12-4468-9c43-a2b66a45eb35"
       }
     }
   }

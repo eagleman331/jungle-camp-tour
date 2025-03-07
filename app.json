@@ -38,8 +38,13 @@
       "bundleIdentifier": "com.eagleman33.junglecamptour"
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey":"AIzaSyAYtzfMLkMyYh9LbIXIcnzULhmbBrU9LH0"
+        }
+      },
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.eagleman33.junglecamptour"

@@ -8,7 +8,7 @@ const DrawerLayout = () => {
   return (
     <Drawer>
       <Drawer.Screen
-        name="welcome"
+        name="reactMap"
         options={{
           headerTitle: 'Home',
           headerShown: false,

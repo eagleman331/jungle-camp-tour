@@ -12,6 +12,12 @@
     "plugins": [
       "expo-router",
       [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ],
+      [
         "expo-dev-launcher",
         {
           "launchMode": "most-recent"
@@ -38,6 +44,7 @@
       "bundleIdentifier": "com.eagleman33.junglecamptour"
     },
     "android": {
+      "permissions": ["ACCESS_FINE_LOCATION"],
       "config": {
         "googleMaps": {
           "apiKey":"AIzaSyAYtzfMLkMyYh9LbIXIcnzULhmbBrU9LH0"

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Animated, { FadeIn, FadeOut, SlideInUp, FadeInUp } from 'react-native-reanimated';
 import Marquee from '../../components/Marquee';
 
+
 const welcome = () => {
   const [activeImage, setActiveImage] = useState(0);
   const AnimatedPressable = Animated.createAnimatedComponent(Pressable);

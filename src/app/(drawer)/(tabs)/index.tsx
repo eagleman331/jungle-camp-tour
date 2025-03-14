@@ -22,7 +22,6 @@ import { FlatCategories } from '~/src/components/CampTourMarquee';
 export default function Home() {
   const { width, height } = useWindowDimensions();
 
-  // const FlatCategories = ({ item }) => {
   //   const scale =  useSharedValue(1);
   //   const animatedStyle = useAnimatedStyle(() => ({
   //     transform: [{ scale: scale.value }],
@@ -61,7 +60,6 @@ export default function Home() {
   // };
   return (
     <>
-      <Stack.Screen options={{ title: 'Tab One' }} />
       <View className="flex-1  bg-gray-400">
         <SafeAreaView>
           <View className=" bg-blue-500" style={{ marginTop: 50, marginLeft: 25 }}>

@@ -1,6 +1,8 @@
-import { Tabs } from 'expo-router';
-
+import { Stack, Tabs } from 'expo-router';
 import { TabBarIcon } from '~/src/components/TabBarIcon';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Entypo from '@expo/vector-icons/Entypo';
+
 
 export default function TabLayout() {
   return (
@@ -9,20 +11,25 @@ export default function TabLayout() {
         tabBarActiveTintColor: 'black',
       }}>
       <Tabs.Screen
-        name="index"
+        name="(TouristMap)"
         options={{
-          title: 'Tab One',
+          title: 'Camp Tour',
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome5 name="campground" size={24} color="black" />,
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'FAQs',
+          headerShown: false,
+          tabBarIcon: ({ color }) => <Entypo name="clipboard" size={24} color="black" />,
         }}
       />
+      <Tabs.Screen
+        name="index"
+        options={{href:null,}}
+        />
     </Tabs>
   );
 }

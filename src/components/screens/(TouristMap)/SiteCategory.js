@@ -1,19 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from 'react-native-maps';
-import { Button, FlatList, Image, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import {
+  Button,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import * as Location from 'expo-location';
 import MapViewDirections from 'react-native-maps-directions';
 import BottomSheet from '@gorhom/bottom-sheet';
-import { testImages } from '../../assets/TestData/imagesTestInvites';
+import { Stack } from 'expo-router';
 
-const reactMap = () => {
+const SiteCategory = () => {
   const [locRegion, setLocRegion] = useState(null);
   const [driverLocation, setDriverLocation] = useState(null);
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
-    const { width, height } = useWindowDimensions();
-    const bottomSheetRef = useRef(null);
+  const { width, height } = useWindowDimensions();
+  const bottomSheetRef = useRef(null);
 
   useEffect(() => {
     async function getCurrentLocation() {
@@ -32,7 +41,9 @@ const reactMap = () => {
 
   console.log('location', location);
   return (
+    
     <View style={{ flex: 1 }}>
+        <Stack.Screen options={{ title: 'CategoryOptions' }} />
       <MapView
         provider={PROVIDER_GOOGLE}
         style={{ height: '100%', width: '100%' }}
@@ -71,8 +82,7 @@ const reactMap = () => {
             tappable={true}
             onPress={() => {
               console.log('polyline tapped');
-            }
-            }
+            }}
           />
         ) : null}
 
@@ -86,74 +96,8 @@ const reactMap = () => {
           lineCap={'butt'}
         /> */}
       </MapView>
-
-      <BottomSheet
-          ref={bottomSheetRef}
-          snapPoints={["12%", "50%", "95%"]}
-          index={0}
-          handleIndicatorStyle={{ backgroundColor: "gray", width: 100 }}
-        >
-          <View style={{ flex: 1, alignItems: "center" }}>
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "600",
-                letterSpacing: 0.5,
-                paddingBottom: 5,
-              }}
-            >
-              Locate Tourist Spot
-            </Text>
-            <Text style={{ letterSpacing: 0.5, color: "red" }}>----</Text>
-            <FlatList
-              data={testImages}
-              renderItem={({ item }) => {
-                return (
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                      padding: 10,
-                    }}
-                  >
-                    <Image
-                      source={item.image}
-                      style={{ width: 50, height: 50, borderRadius: 10 }}
-                    />
-                    <View style={{ flex: 1, marginHorizontal: 10 }}>
-                      <Text style={{ fontSize: 16, fontWeight: "600" }}>
-                        {item.title}
-                      </Text>
-                      <Text style={{ fontSize: 14, color: "gray" }}>
-                        {item.description}
-                      </Text>
-                    </View>
-                    <TouchableOpacity
-                      style={{
-                        backgroundColor: "blue",
-                        padding: 10,
-                        borderRadius: 10,
-                      }}
-                      onPress={() => {
-                        bottomSheetRef.current?.close();
-                      }}
-                    >
-                      <Text style={{ color: "white" }}>Locate</Text>
-                    </TouchableOpacity>
-                  </View>
-                );
-              }}
-            />
-          </View>
-        </BottomSheet>
-
-
     </View>
-
-    
   );
 };
 
-export default reactMap;
+export default SiteCategory;

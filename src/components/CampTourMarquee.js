@@ -1,8 +1,10 @@
-import { router, Stack } from 'expo-router';
+
+import { useRouter } from 'expo-router';
 import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 export const FlatCategories = ({ item }) => {
+const router = useRouter();
   const { width, height } = useWindowDimensions();
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
@@ -12,11 +14,11 @@ export const FlatCategories = ({ item }) => {
     <Pressable
       onPressIn={() => (scale.value = withSpring(0.9, { damping: 5, stiffness: 150 }))} // Press effect
       onPressOut={() => (scale.value = withSpring(1, { damping: 5, stiffness: 150 }))} // Release effect
-      onPress={() => router.push("/reactMap")} // OnPress event
+      onPress={() => router.push({pathname:"/(drawer)/(tabs)/(TouristMap)/SiteDetails", params:item})} // OnPress event
     >
       <Animated.View
         key={item.id}
-        className="flex-row justify-between rounded-lg bg-blue-500"
+        className="flex-row justify-between rounded-lg bg-green-400"
         style={[
           styles.button,
           animatedStyle,
@@ -29,7 +31,7 @@ export const FlatCategories = ({ item }) => {
           </Text>
         </View>
 
-        <View className="w-2/5 items-center justify-center bg-white">
+        <View className="w-2/5 items-center justify-center">
           <Image
             className="bottom-1 rounded-lg drop-shadow-xl"
             style={{ width: 100, height: 100 }}

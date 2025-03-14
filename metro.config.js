@@ -5,4 +5,8 @@ const { withNativeWind } = require('nativewind/metro');
 // eslint-disable-next-line no-undef
 const config = getDefaultConfig(__dirname);
 
+config.resolver.assetExts.push('json');  // Ensure `.json` files for Lottie are included
+
 module.exports = withNativeWind(config, { input: './global.css' });
+
+
